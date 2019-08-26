@@ -16,6 +16,7 @@ npm run server
 Install nodemon globally :
 
 ```
+npm install
 npm -g install nodemon
 ```
 and start the server in dev environment :
