@@ -6,13 +6,13 @@ router.post("/getUserCallWorkBook.do", (req, res) => {
   let tempArr = [...getUserCallWorkBook.workbookItems];
   let slicedArr = [];
   while (tempArr.length > 0) {
-    var temp = tempArr.splice(0, req.body.pageSize);
+    var temp = tempArr.splice(0, req.query.pageSize);
     slicedArr.push(temp);
   }
   let resData = {};
   resData.overview = { ...getUserCallWorkBook.overview };
-  if (req.body.pageNumber < slicedArr.length) {
-    resData.workbookItems = [...slicedArr[req.body.pageNumber]];
+  if (req.query.pageNumber < slicedArr.length) {
+    resData.workbookItems = [...slicedArr[req.query.pageNumber]];
   } else {
     resData.workbookItems = [];
   }
